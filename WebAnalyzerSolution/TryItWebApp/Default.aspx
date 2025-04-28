@@ -16,6 +16,14 @@
         <h2>Welcome to the AI-Powered Web Services Portal</h2>
         <p>This application demonstrates a set of web services, including AI-based conflict resolution, content analysis, and data security.</p>
 
+         <asp:HyperLink 
++            ID="lnkLogin" 
++            runat="server" 
++            NavigateUrl="Login.aspx"
++            Text="Log In" 
++            CssClass="login-link" />
++        <br /><br />
+
         <h3>Service Directory</h3>
         <asp:Table ID="tblServices" runat="server" BorderWidth="1" GridLines="Both" />
 
