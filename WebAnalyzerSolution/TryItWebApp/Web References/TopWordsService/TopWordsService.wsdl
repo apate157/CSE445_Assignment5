@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Top10ContentWords">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="url" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Top10ContentWordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Top10ContentWordsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Top10ContentWordsSoapIn">
+    <wsdl:part name="parameters" element="tns:Top10ContentWords" />
+  </wsdl:message>
+  <wsdl:message name="Top10ContentWordsSoapOut">
+    <wsdl:part name="parameters" element="tns:Top10ContentWordsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TopWordsHandlerSoap">
+    <wsdl:operation name="Top10ContentWords">
+      <wsdl:input message="tns:Top10ContentWordsSoapIn" />
+      <wsdl:output message="tns:Top10ContentWordsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TopWordsHandlerSoap" type="tns:TopWordsHandlerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Top10ContentWords">
+      <soap:operation soapAction="http://tempuri.org/Top10ContentWords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TopWordsHandlerSoap12" type="tns:TopWordsHandlerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Top10ContentWords">
+      <soap12:operation soapAction="http://tempuri.org/Top10ContentWords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TopWordsHandler">
+    <wsdl:port name="TopWordsHandlerSoap" binding="tns:TopWordsHandlerSoap">
+      <soap:address location="https://localhost:44335/TopWordsService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TopWordsHandlerSoap12" binding="tns:TopWordsHandlerSoap12">
+      <soap12:address location="https://localhost:44335/TopWordsService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

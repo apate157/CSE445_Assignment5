@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TryItWebApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TryItWebApp_TopWordsService_TopWordsHandler" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44335/TopWordsService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

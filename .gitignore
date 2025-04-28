@@ -1,0 +1,18 @@
+# Ignore Visual Studio temporary files
+.vs/
+*.user
+*.suo
+
+# Ignore build output folders
+bin/
+obj/
+
+# Ignore WebAnalyzer settings
+*.vssscc
+*.cache
+*.dbmdl
+*.bak
+*.log
+
+# Ignore publish profiles
+Properties/PublishProfiles/
